@@ -9,7 +9,7 @@ class Paddle {
     draw(ctx) {
         ctx.beginPath();
         ctx.rect(this.x, this.canvas.height - this.height, this.width, this.height);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "red";
         ctx.fill();
         ctx.closePath();
     }

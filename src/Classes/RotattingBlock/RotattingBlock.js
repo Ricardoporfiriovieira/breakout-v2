@@ -3,8 +3,8 @@ class RotatingBlock {
         this.canvas = canvas;
         this.width = width;
         this.height = height;
-        this.x = canvas.width / 2;
-        this.y = canvas.height / 2;
+        this.x = canvas.width / 2 + 100;
+        this.y = canvas.height / 2 - 50;
         this.angle = 0;
         this.rotationSpeed = rotationSpeed;
         this.status = 1;
@@ -15,7 +15,7 @@ class RotatingBlock {
             ctx.save();
             ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
             ctx.rotate(this.angle);
-            ctx.fillStyle = "#0095DD";
+            ctx.fillStyle = "green";
             ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
             ctx.restore();
         }

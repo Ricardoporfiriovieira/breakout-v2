@@ -8,10 +8,10 @@ class Brick {
         this.powerUp = powerUp;
     }
 
-    draw(ctx) {
+    draw(ctx, cor = "#0095DD") {
         ctx.beginPath();
         ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = cor;
         ctx.fill();
         ctx.closePath();
     }

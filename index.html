@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,60 @@
     <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
-    <canvas id="breakoutCanvas" width="480" height="320"></canvas>
+
+    <div id="menu">
+        <h1>Breakout Game</h1>
+        <button id="startButton">Start Game</button>
+    </div>
+    <div id="gameInfo">
+        <p id="score">Score: 0</p>
+    </div>
+
+    <div id="gameOver">
+        <h1>Game Over</h1>
+        <p>Your Score: <span id="finalScore">0</span></p>
+        <button id="restartButton">Restart</button>
+    </div>
+    <canvas class="board" id="breakoutCanvas" width="480" height="320"></canvas>
     <script type="module">
         import BreakoutGame from './src/Classes/BreakoutGame/BreakoutGame.js';
-        // Start the game
-        new BreakoutGame();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("breakoutCanvas");
+            const ctx = canvas.getContext("2d");
+
+            // ... (restante do seu código) ...
+
+            // Menu
+            const menu = document.getElementById("menu");
+            const startButton = document.getElementById("startButton");
+
+            
+            // Pontuação
+            let score = 0;
+            const scoreElement = document.getElementById("score");
+
+            startButton.addEventListener("click", startGame);
+
+            function startGame() {
+                menu.style.display = "none"; // Esconde o menu
+                score = 0; // Reinicia a pontuação
+                updateScore(); // Atualiza a exibição da pontuação
+                // Inicializa ou reinicializa o jogo aqui
+                new BreakoutGame();
+            }
+
+            function showMenu() {
+                menu.style.display = "block"; // Exibe o menu
+            }
+
+            function updateScore() {
+                scoreElement.textContent = "Score: " + score;
+            }
+
+            // Adicione esta chamada para exibir o menu quando a página carregar
+            showMenu();
+        });
     </script>
 </body>
 </html>
